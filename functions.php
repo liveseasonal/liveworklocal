@@ -19,3 +19,18 @@ function university_features() {
 
 add_action('after_setup_theme', 'university_features');
 
+
+// Removed for MU plugins
+
+// function university_post_types() {
+//   register_post_type('experience',array(
+//     'public' => true,
+//     'labels' => array(
+//       'name' => 'Experience'
+//     ),
+//     'menu_icon' => 'dashicons-unlock'
+//   ));
+
+// }
+
+// add_action('init', 'university_post_types');
