@@ -16,9 +16,21 @@
         <h2 class="headline headline--small-plus t-center">Upcoming Events</h2>
          
         <?php
+          $today = date('Ymd');
           $homePageExperiences = new WP_Query(array(
-            'posts_per_page' => 2,
-            'post_type' => 'experience'
+            'posts_per_page' => -1,
+            'post_type' => 'experience',
+            'meta_key' => 'experience-date',
+            'orderby' => 'meta_value_num',
+            'order' => 'ASC',
+            'meta_query' => array(
+              array(
+                'key' => 'experience-date',
+                'compare' => '>=',
+                'value' => $today,
+                'type' => 'numeric'
+              )
+            )
           )); 
 
           while($homePageExperiences -> have_posts()) {
@@ -33,8 +45,8 @@
 
                 ?></span>
                 <span class="event-summary__day"><?php
+
                   
-                  $experienceDate = new DateTime(get_field('experience-date'));
                   echo $experienceDate->format('d');
 
                 ?></span>  
