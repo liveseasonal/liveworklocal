@@ -18,7 +18,7 @@
         <?php
           $today = date('Ymd');
           $homePageExperiences = new WP_Query(array(
-            'posts_per_page' => -1,
+            'posts_per_page' => 2,
             'post_type' => 'experience',
             'meta_key' => 'experience-date',
             'orderby' => 'meta_value_num',
