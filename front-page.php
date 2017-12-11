@@ -23,10 +23,21 @@
 
           while($homePageExperiences -> have_posts()) {
             $homePageExperiences -> the_post(); ?>
+            
             <div class="event-summary">
               <a class="event-summary__date t-center" href="#">
-                <span class="event-summary__month"><?php the_time('M'); ?></span>
-                <span class="event-summary__day"><?php the_time('d'); ?></span>  
+                <span class="event-summary__month"><?php  
+
+                  $experienceDate = new DateTime(get_field('experience-date'));
+                  echo $experienceDate->format('M');
+
+                ?></span>
+                <span class="event-summary__day"><?php
+                  
+                  $experienceDate = new DateTime(get_field('experience-date'));
+                  echo $experienceDate->format('d');
+
+                ?></span>  
               </a>
              <div class="event-summary__content">
                 <h5 class="event-summary__title headline headline--tiny"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
