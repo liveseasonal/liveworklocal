@@ -17,7 +17,16 @@
 
        <div class="container container--narrow page-section">
           
-          <div class="generic-content"><?php the_content() ?></div>
+          <div class="generic-content">
+            <div class="row group">
+              <div class="one-third">
+                <?php the_post_thumbnail('professorPotrait'); ?>                
+              </div>
+              <div class="two-thirds">
+                 <?php the_content() ?>
+              </div>
+            </div>
+          </div>
 
           <?php
             
@@ -26,7 +35,7 @@
             if ($relatedCities) {
 
                 echo '<hr class="section-break">';
-                echo '<h2 headline headline--medium >Subject(s) taught</h2>';
+                echo '<h2 headline headline--medium >Cities(s) taught in</h2>';
                 echo '<ul class="link-list min-list">';
 
                 foreach ($relatedCities as $city) { ?>
