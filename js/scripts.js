@@ -13,3 +13,8 @@ var mobileMenu = new MobileMenu();
 var heroSlider = new HeroSlider();
 var googleMap = new GoogleMap();
 var search = new Search();
+
+// So we have imported a our search.js javascript from another within the same modules 
+// folder hence the ./modules. 
+
+// And once we have it imported we can now create a new object of our search class 

@@ -1,4 +1,10 @@
-<?php get_header(); ?>
+<?php get_header(); 
+pageBanner(array(
+  'title' => 'Welcome to our Blog',
+  'sub-titles' => 'See whats happening in our World'
+));
+
+?>
 
 
 <div class="page-banner">

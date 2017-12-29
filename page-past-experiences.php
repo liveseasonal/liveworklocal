@@ -1,4 +1,13 @@
-<?php get_header(); ?>
+<?php 
+
+get_header(); 
+pageBanner(array(
+  'title' => 'Past Experiences',
+  'sub-titles' => ' Recap of experiences See whats happening in our World'
+));
+
+
+?>
 
 
 <div class="page-banner">
@@ -32,27 +41,13 @@
           )); 
 
     while ($pastExperiences ->have_posts()) { 
-     $pastExperiences -> the_post(); ?>
-     <div class="event-summary">
-            <a class="event-summary__date t-center" href="#">
-              <span class="event-summary__month"><?php  
-                
-                $experienceDate = new DateTime(get_field('experience-date'));
-                echo $experienceDate->format('M');
-                
-              ?></span>
-              <span class="event-summary__day"><?php
-                echo $experienceDate->format('d');
-              ?></span>  
-            </a>
-           <div class="event-summary__content">
-              <h5 class="event-summary__title headline headline--tiny"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
-              <p><?php echo wp_trim_words(get_the_content(), 18); ?> <a href="<?php the_permalink(); ?>" class="nu gray">Learn more</a></p>
-           </div>
-      </div>
+     $pastExperiences -> the_post(); 
+
+     get_template_part('template-parts/content-experience');
 
 
-  <?php }
+     }
+
   echo paginate_links(array(
     'total' => $pastExperiences->max_num_pages,
   ));
